@@ -6,8 +6,10 @@ export default function MandalaChartMain({
   children: React.ReactNode;
 }) {
   return (
-    <ChartContextElement>
-      <div className="chart-wrapper">{children}</div>
-    </ChartContextElement>
+    <div className="h-full">
+      <ChartContextElement>
+        <div>{children}</div>
+      </ChartContextElement>
+    </div>
   );
 }
