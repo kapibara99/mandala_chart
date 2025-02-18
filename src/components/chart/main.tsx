@@ -1,6 +1,6 @@
 import ChartContextElement from "./chartContext";
 
-export default function MandaraChartMain({
+export default function MandalaChartMain({
   children,
 }: {
   children: React.ReactNode;
