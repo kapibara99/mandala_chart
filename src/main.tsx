@@ -11,7 +11,7 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Base>
       <Header />
-      <MandalaChartMain>aaa</MandalaChartMain>
+      <MandalaChartMain />
       <Footer />
     </Base>
   </StrictMode>

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { createContext } from "react";
 import { DEFAULT_DATA } from "./chart.default";
 
-const ChartContext = createContext(DEFAULT_DATA);
+export const ChartContext = createContext(DEFAULT_DATA);
 
 export default function ChartContextElement({
   children,
