@@ -14,7 +14,7 @@ export const DEFAULT_STYLE: ChartStyle = {
 };
 
 export const DEFAULT_CONTENT = {
-  central: DEFAULT_BG_COLOR,
+  central: "Central Name",
   items: [
     {
       itemTitle: "No.1",

@@ -10,7 +10,7 @@ export default function ChartContextElement({
 }: {
   children: React.ReactNode;
 }) {
-  const [context, setContext] = useState(DEFAULT_DATA);
+  const [context] = useState(DEFAULT_DATA);
   return (
     <ChartContext.Provider value={context}>{children}</ChartContext.Provider>
   );

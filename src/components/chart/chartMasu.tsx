@@ -1,22 +1,21 @@
 import { useContext } from "react";
 import { ChartContext } from "./chartContext";
-import ChartCategory from "./chartCategory";
 
 export default function ChartMasu({
   value,
-  key,
+  masuName,
 }: {
   value: string;
-  key: string;
+  masuName: string;
 }) {
   const chartContext = useContext(ChartContext);
   return (
     <div
-      data-key={key}
       className="outline outline-base-line p-4"
       style={{ color: chartContext.style.itemFontColor }}
+      data-id={`${masuName}`}
     >
-      <input type="text" name={`chart-${key}`} value={value} />
+      {value}
     </div>
   );
 }
