@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import ChartContextElement, { ChartContext } from "./chartContext";
-import ChartItem from "./chartItem";
-import ChartMasu from "./chartMasu";
+import ChartCategory from "./chartCategory";
 
 export default function MandalaChartMain() {
   const chartContext = useContext(ChartContext);
@@ -9,50 +8,18 @@ export default function MandalaChartMain() {
     return <div>MandalaChart Error</div>;
   }
   return (
-    <div className="w-4/5 mt-5 m-auto p-10 bg-white">
+    <div className="w-4/5 mt-10 m-auto p-10 bg-white shadow-sm">
       <ChartContextElement>
         <div className="grid grid-cols-3">
-          <ChartMasu
-            title={chartContext.content.items[0].itemTitle}
-            no={0}
-            key={`masu-${0}`}
-          />
-          <ChartMasu
-            title={chartContext.content.items[1].itemTitle}
-            no={1}
-            key={`masu-${1}`}
-          />
-          <ChartMasu
-            title={chartContext.content.items[2].itemTitle}
-            no={2}
-            key={`masu-${2}`}
-          />
-          <ChartMasu
-            title={chartContext.content.items[3].itemTitle}
-            no={3}
-            key={`masu-${3}`}
-          />
-          <div className="border border-gray-300">central</div>
-          <ChartMasu
-            title={chartContext.content.items[4].itemTitle}
-            no={4}
-            key={`masu-${4}`}
-          />
-          <ChartMasu
-            title={chartContext.content.items[5].itemTitle}
-            no={5}
-            key={`masu-${5}`}
-          />
-          <ChartMasu
-            title={chartContext.content.items[6].itemTitle}
-            no={6}
-            key={`masu-${6}`}
-          />
-          <ChartMasu
-            title={chartContext.content.items[7].itemTitle}
-            no={7}
-            key={`masu-${7}`}
-          />
+          <ChartCategory no={0} />
+          <ChartCategory no={1} />
+          <ChartCategory no={2} />
+          <ChartCategory no={3} />
+          <div className="outline outline-base-line">central</div>
+          <ChartCategory no={4} />
+          <ChartCategory no={5} />
+          <ChartCategory no={6} />
+          <ChartCategory no={7} />
         </div>
       </ChartContextElement>
     </div>
