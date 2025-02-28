@@ -8,15 +8,9 @@ export type ChartStyle = {
   itemFontColor: string;
 };
 
-export type ChartContent = {
-  central: string;
-  items: {
-    itemTitle: string;
-    itemList: string[];
-  }[];
+export type MandalaCellProps = {
+  cellType: "item" | "subTitle" | "title";
+  isFocused: boolean;
+  value: string;
+  zahyou: [number, number];
 };
-
-export interface ChartContextType {
-  content: ChartContent;
-  style: ChartStyle;
-}

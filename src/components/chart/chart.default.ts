@@ -1,4 +1,4 @@
-import { ChartStyle } from "./chart";
+import { ChartStyle, MandalaCellProps } from "./chart";
 
 export const DEFAULT_BG_COLOR = "#000000";
 export const DEFAULT_FONT_COLOR = "#000000";
@@ -13,12 +13,6 @@ export const DEFAULT_STYLE: ChartStyle = {
   itemFontColor: DEFAULT_FONT_COLOR,
 };
 
-export interface MandalaCellProps {
-  cellType: "item" | "subTitle" | "title";
-  isFocused: boolean;
-  value: string;
-  zahyou: [number, number];
-}
 
 export const DEFAULT_CHART_DATA = () => {
   const MandalaCellDefault: MandalaCellProps = {

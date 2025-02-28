@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
-import { MandalaCellProps } from "./chart.default";
+import { useRef, useState } from "react";
+import { MandalaCellProps } from "./chart";
 
-const MandalaCell: React.FC<MandalaCellProps> = ({ cellType, value, isFocused, zahyou }) => {
+export default function MandalaCell({ cellType, value, isFocused, zahyou }: MandalaCellProps) {
   const cellRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const [cellValue, setCellValue] = useState(value);
@@ -17,7 +17,7 @@ const MandalaCell: React.FC<MandalaCellProps> = ({ cellType, value, isFocused, z
   return (
     <div
       ref={cellRef}
-      className="relative border border-gray-300 p-2 focus-within:ring-2 focus-within:ring-blue-500"
+      className="relative outline outline-base-line p-2 focus-within:ring-4 focus-within:ring-attention"
       // onFocus={handleFocus}
       // onBlur={handleBlur}
       data-zahyou={zahyou.join(",")}
@@ -30,6 +30,4 @@ const MandalaCell: React.FC<MandalaCellProps> = ({ cellType, value, isFocused, z
       />
     </div>
   );
-};
-
-export default MandalaCell;
+}
