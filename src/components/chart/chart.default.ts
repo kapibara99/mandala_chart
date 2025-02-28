@@ -13,7 +13,6 @@ export const DEFAULT_STYLE: ChartStyle = {
   itemFontColor: DEFAULT_FONT_COLOR,
 };
 
-
 export const DEFAULT_CHART_DATA = () => {
   const MandalaCellDefault: MandalaCellProps = {
     cellType: "item",
@@ -36,18 +35,21 @@ export const DEFAULT_CHART_DATA = () => {
     return Array.from({ length: 9 }, () => MandalaCellDefault);
   });
 
-  MandalaCellList.forEach((objList, index) => {
-    objList.forEach((obj, index2) => {
-      const zahyouValue = cellTypeZhyou[index][index2];
-      obj.zahyou = [index, index2];
+  const result: MandalaCellProps[] = [];
+  for (var i = 0; i < MandalaCellList.length; i++) {
+    for (var j = 0; j < MandalaCellList[i].length; j++) {
+      const obj = Object.assign({}, MandalaCellList[i][j]);
+      obj.zahyou = [i, j];
+      const zahyouValue = cellTypeZhyou[i][j];
       if (zahyouValue) {
         obj.value = zahyouValue;
         obj.cellType = zahyouValue.includes("No.") ? "subTitle" : "title";
       } else {
-        obj.value = `item-cell-${index}-${index2}`;
+        obj.value = `item-cell-${i}-${j}`;
       }
-    });
-  });
+      result.push(obj);
+    }
+  }
 
-  return [...MandalaCellList.flatMap((item) => [...item])];
+  return result;
 };
