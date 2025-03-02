@@ -1,4 +1,4 @@
-import { FocusEvent, MouseEvent, useRef, useState } from "react";
+import { ChangeEvent, FocusEvent, MouseEvent, useRef, useState } from "react";
 import { MandalaCellProps } from "./chart";
 
 export default function MandalaCell({ cellType, value, isFocused, zahyou }: MandalaCellProps) {
@@ -16,12 +16,13 @@ export default function MandalaCell({ cellType, value, isFocused, zahyou }: Mand
       inputRef.current.focus();
     }
   };
-  const cellTypeStyle =
-    cellType == "title"
-      ? "outline-main-strong outline-4 -outline-offset-4 z-3" // main title cell
-      : cellType == "subTitle"
-      ? "outline-main-light outline-4 -outline-offset-4 z-2" // sub title cell
-      : "outline-base-line outline"; // item cell
+  const handleInput = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setCellValue(e.target.value);
+    if (cellType == "subTitle") {
+      console.log(document.querySelector(`[data-zahyou="${[1, 1].join(",")}"]`));
+    }
+  };
+
   return (
     <div className="relative p-2 break-all" data-zahyou={zahyou.join(",")}>
       {/* ツールチップ */}
@@ -37,14 +38,22 @@ export default function MandalaCell({ cellType, value, isFocused, zahyou }: Mand
           value={cellValue}
           onFocus={(e) => handleFocus(e)}
           onBlur={(e) => handleFocus(e)}
-          onInput={(e) => setCellValue(e.currentTarget.value)}
+          onInput={handleInput}
           className="w-full h-20 border border-gray-300 p-2 outline-none break-all"
         />
       </div>
 
       {/* クリック/ホバー用 */}
       <button
-        className={`absolute top-0 right-0 w-full h-full block cursor-pointer hover:opacity-10 hover:bg-main-light ${cellTypeStyle}`}
+        className={`absolute top-0 right-0 w-full h-full block cursor-pointer hover:opacity-10 hover:bg-main-light ${
+          cellFocused
+            ? "outline-attention outline-4 -outline-offset-4 z-4" // focused style
+            : cellType == "title"
+            ? "outline-main-strong outline-4 -outline-offset-4 z-3" // main title cell
+            : cellType == "subTitle"
+            ? "outline-main-light outline-4 -outline-offset-4 z-2" // sub title cell
+            : "outline-base-line outline" // item cell
+        }`}
         tabIndex={-1}
         type="button"
         onClick={(e) => handleClick(e)}
