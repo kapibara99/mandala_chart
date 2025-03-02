@@ -1,5 +1,6 @@
-import { ChangeEvent, FocusEvent, MouseEvent, useRef, useState } from "react";
+import { ChangeEvent, FocusEvent, MouseEvent, useEffect, useRef, useState } from "react";
 import { MandalaCellProps } from "./chart";
+import { getSameValueZahyou } from "./chart.default";
 
 export default function MandalaCell({ cellType, value, isFocused, zahyou }: MandalaCellProps) {
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -12,15 +13,27 @@ export default function MandalaCell({ cellType, value, isFocused, zahyou }: Mand
   };
   const handleClick = (e: MouseEvent<HTMLElement>) => {
     e.preventDefault();
-    if (inputRef.current) {
-      inputRef.current.focus();
+    if (inputRef.current) inputRef.current.focus();
+  };
+  useEffect(() => {
+    // sub titleの時セル同期用のイベントを登録する
+    if (inputRef.current && cellType == "subTitle") {
+      const handleInputChange = (event: CustomEvent<string>) => setCellValue(event.detail);
+      const eventName = `inputChange-${zahyou.join(",")}`;
+      document.removeEventListener(eventName, handleInputChange as EventListenerOrEventListenerObject);
+      document.addEventListener(eventName, handleInputChange as EventListenerOrEventListenerObject);
     }
+  }, [cellType, zahyou]);
+
+  const otherCellZahyou = cellType == "subTitle" ? getSameValueZahyou(zahyou) : zahyou;
+  const handleSubTitleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    const event = new CustomEvent(`inputChange-${otherCellZahyou.join(",")}`, { detail: e.target.value });
+    document.dispatchEvent(event);
   };
   const handleInput = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setCellValue(e.target.value);
-    if (cellType == "subTitle") {
-      console.log(document.querySelector(`[data-zahyou="${[1, 1].join(",")}"]`));
-    }
+    // 別のセルを更新
+    if (cellType == "subTitle") handleSubTitleChange(e);
   };
 
   return (

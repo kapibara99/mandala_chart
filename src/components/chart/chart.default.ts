@@ -36,8 +36,8 @@ export const DEFAULT_CHART_DATA = () => {
   });
 
   const result: MandalaCellProps[] = [];
-  for (var i = 0; i < MandalaCellList.length; i++) {
-    for (var j = 0; j < MandalaCellList[i].length; j++) {
+  for (let i = 0; i < MandalaCellList.length; i++) {
+    for (let j = 0; j < MandalaCellList[i].length; j++) {
       const obj = Object.assign({}, MandalaCellList[i][j]);
       obj.zahyou = [i, j];
       const zahyouValue = cellTypeZhyou[i][j];
@@ -51,5 +51,53 @@ export const DEFAULT_CHART_DATA = () => {
     }
   }
 
+  return result;
+};
+
+export const getSameValueZahyou = (inputZahyou: [number, number]) => {
+  const result = [0, 0];
+  function setXzahyou() {
+    if (inputZahyou[1] == 1) {
+      result[1] = 3;
+    } else if (inputZahyou[1] == 3) {
+      result[1] = 1;
+    } else if (inputZahyou[1] == 4) {
+      result[1] = 4;
+    } else if (inputZahyou[1] == 5) {
+      result[1] = 7;
+    } else if (inputZahyou[1] == 7) {
+      result[1] = 5;
+    }
+  }
+  switch (inputZahyou[0]) {
+    case 1:
+      result[0] = 3;
+      setXzahyou();
+      break;
+    case 7:
+      result[0] = 5;
+      setXzahyou();
+      break;
+    case 3:
+      result[0] = 1;
+      setXzahyou();
+      break;
+    case 4:
+      result[0] = 4;
+      setXzahyou();
+      break;
+    case 5:
+      result[0] = 7;
+      setXzahyou();
+      break;
+    case 0:
+    case 2:
+    case 6:
+    case 8:
+      break;
+  }
+  // if (result[0] === 0 || result[1] === 0) {
+  //   console.log("error", result, inputZahyou);
+  // }
   return result;
 };
