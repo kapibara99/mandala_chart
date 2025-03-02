@@ -37,7 +37,7 @@ export default function MandalaCell({ cellType, value, isFocused, zahyou }: Mand
   };
 
   return (
-    <div className="relative p-2 break-all" data-zahyou={zahyou.join(",")}>
+    <div className="relative p-2 break-all min-h-15" data-zahyou={zahyou.join(",")}>
       {/* ツールチップ */}
       <div
         className={

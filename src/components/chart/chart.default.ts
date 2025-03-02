@@ -2,6 +2,9 @@ import { ChartStyle, MandalaCellProps } from "./chart";
 
 export const CHART_MAIN_ID = "chart-main";
 
+export const CHART_COLORS = [
+  ""
+]
 export const DEFAULT_BG_COLOR = "#000000";
 export const DEFAULT_FONT_COLOR = "#000000";
 
@@ -47,7 +50,7 @@ export const DEFAULT_CHART_DATA = () => {
         obj.value = zahyouValue;
         obj.cellType = zahyouValue.includes("No.") ? "subTitle" : "title";
       } else {
-        obj.value = `item-cell-${i}-${j}`;
+        obj.value = "";
       }
       result.push(obj);
     }
