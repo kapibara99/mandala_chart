@@ -14,15 +14,14 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Base>
       <Header />
-      <ContentBox>
-        <h2>Setting</h2>
-        <DownloadImage />
-      </ContentBox>
       <BackendCircleAnimation>
         <ChartMain />
       </BackendCircleAnimation>
-      <ContentBox>
-        <h2>マンダラチャートとは？</h2>
+      <ContentBox title="デザインの編集・保存・ダウンロード">
+        <DownloadImage />
+      </ContentBox>
+      <ContentBox title="マンダラチャートとは？">
+        <p>aaaa</p>
       </ContentBox>
       <Footer />
     </Base>
