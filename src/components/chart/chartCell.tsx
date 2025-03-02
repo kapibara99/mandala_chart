@@ -1,6 +1,6 @@
 import { ChangeEvent, FocusEvent, MouseEvent, useEffect, useRef, useState } from "react";
 import { MandalaCellProps } from "./chart";
-import { getSameValueZahyou } from "./chart.default";
+import { getCategoryColorFromZahyou, getSameValueZahyou } from "./chart.default";
 
 export default function MandalaCell({ cellType, value, isFocused, zahyou }: MandalaCellProps) {
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -62,9 +62,9 @@ export default function MandalaCell({ cellType, value, isFocused, zahyou }: Mand
           cellFocused
             ? "border-attention border-4 -border-offset-4 z-4" // focused style
             : cellType == "title"
-            ? "border-main-strong border-4 -border-offset-4 z-3" // main title cell
+            ? "border-main border-4 -border-offset-4 z-3" // main title cell
             : cellType == "subTitle"
-            ? "border-main-light border-4 -border-offset-4 z-2" // sub title cell
+            ? `${getCategoryColorFromZahyou(zahyou)} border-4 -border-offset-4 z-2` // sub title cell
             : "border-base-line border" // item cell
         }`}
         tabIndex={-1}

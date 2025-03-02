@@ -2,9 +2,31 @@ import { ChartStyle, MandalaCellProps } from "./chart";
 
 export const CHART_MAIN_ID = "chart-main";
 
-export const CHART_COLORS = [
-  ""
-]
+export const CHART_COLORS = ["border-[#fd6467]", "border-[#fdf085]", "border-[#7bf1a7]", "border-[#c27aff]", "border-[#2a90ff]", "border-[#e60a76]", "border-[#ca3500]", "border-[#07605a]", "border-[#312c85]"];
+export function getCategoryColorFromZahyou(zahyou: [number, number]) {
+  function checker(z: number, val: number) {
+    return z == val;
+  }
+  if ((checker(zahyou[0], 1) && (zahyou[1] === 1)) || (checker(zahyou[0], 3) && (zahyou[1] === 3))) {
+    return CHART_COLORS[0];
+  } else if ((checker(zahyou[0], 1) && (zahyou[1] === 4)) || (checker(zahyou[0], 3) && (zahyou[1] === 4))) {
+    return CHART_COLORS[1];
+  } else if ((checker(zahyou[0], 1) && (zahyou[1] === 7)) || (checker(zahyou[0], 3) && (zahyou[1] === 5))) {
+    return CHART_COLORS[2];
+  } else if ((checker(zahyou[0], 4) && (zahyou[1] === 1)) || (checker(zahyou[0], 4) && (zahyou[1] === 3))) {
+    return CHART_COLORS[3];
+  } else if ((checker(zahyou[0], 4) && (zahyou[1] === 5)) || (checker(zahyou[0], 4) && (zahyou[1] === 7))) {
+    return CHART_COLORS[5];
+  } else if ((checker(zahyou[0], 5) && (zahyou[1] === 3)) || (checker(zahyou[0], 7) && (zahyou[1] === 1))) {
+    return CHART_COLORS[6];
+  } else if ((checker(zahyou[0], 5) && (zahyou[1] === 4)) || (checker(zahyou[0], 7) && (zahyou[1] === 4))) {
+    return CHART_COLORS[7];
+  } else if ((checker(zahyou[0], 5) && (zahyou[1] === 5)) || (checker(zahyou[0], 7) && (zahyou[1] === 7))) {
+    return CHART_COLORS[8];
+  }
+  return CHART_COLORS[4];
+}
+
 export const DEFAULT_BG_COLOR = "#000000";
 export const DEFAULT_FONT_COLOR = "#000000";
 
