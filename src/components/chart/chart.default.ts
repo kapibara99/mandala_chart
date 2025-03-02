@@ -1,5 +1,7 @@
 import { ChartStyle, MandalaCellProps } from "./chart";
 
+export const CHART_MAIN_ID = "chart-main";
+
 export const DEFAULT_BG_COLOR = "#000000";
 export const DEFAULT_FONT_COLOR = "#000000";
 

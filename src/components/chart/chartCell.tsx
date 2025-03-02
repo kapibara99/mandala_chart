@@ -52,7 +52,7 @@ export default function MandalaCell({ cellType, value, isFocused, zahyou }: Mand
           onFocus={(e) => handleFocus(e)}
           onBlur={(e) => handleFocus(e)}
           onInput={handleInput}
-          className="w-full h-20 border border-gray-300 p-2 outline-none break-all"
+          className="w-full h-20 border border-gray-300 p-2 border-none break-all"
         />
       </div>
 
@@ -60,12 +60,12 @@ export default function MandalaCell({ cellType, value, isFocused, zahyou }: Mand
       <button
         className={`absolute top-0 right-0 w-full h-full block cursor-pointer hover:opacity-10 hover:bg-main-light ${
           cellFocused
-            ? "outline-attention outline-4 -outline-offset-4 z-4" // focused style
+            ? "border-attention border-4 -border-offset-4 z-4" // focused style
             : cellType == "title"
-            ? "outline-main-strong outline-4 -outline-offset-4 z-3" // main title cell
+            ? "border-main-strong border-4 -border-offset-4 z-3" // main title cell
             : cellType == "subTitle"
-            ? "outline-main-light outline-4 -outline-offset-4 z-2" // sub title cell
-            : "outline-base-line outline" // item cell
+            ? "border-main-light border-4 -border-offset-4 z-2" // sub title cell
+            : "border-base-line border" // item cell
         }`}
         tabIndex={-1}
         type="button"
