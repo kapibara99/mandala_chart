@@ -47,9 +47,13 @@ export default function MandalaCell({ cellType, value, isFocused, zahyou }: Mand
       {/* ツールチップ */}
       <div
         className={
-          "absolute bottom-4/5 w-64 p-4 bg-white border border-gray-200 rounded-md " +
+          "w-64 p-4 bg-white border border-gray-200 rounded-md absolute" +
+          " " +
           (zahyou[1] > 4 ? "right-0" : "left-0") +
-          " transition-opacity duration-1000 -z-10 focus-within:z-100 opacity-0 focus-within:opacity-100 pointer-events-none focus-within:pointer-events-auto"
+          " " +
+          (zahyou[0] > 2 ? "bottom-4/5" : "top-full") +
+          " " +
+          "transition-opacity duration-1000 -z-10 focus-within:z-100 opacity-0 focus-within:opacity-100 pointer-events-none focus-within:pointer-events-auto"
         }
       >
         <textarea
