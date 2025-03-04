@@ -1,30 +1,25 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import Header from "./components/header";
-import Footer from "./components/footer";
+import { BrowserRouter } from "react-router";
 
 import "./tailwind.css";
+
+import Header from "./components/header";
+import Footer from "./components/footer";
 import Base from "./components/base";
-import ChartMain from "./components/chart/chartMain";
 import BackendCircleAnimation from "./components/backgroundAnimation";
-import ContentBox from "./components/contentBox";
-import DownloadImage from "./components/downloadImage";
+import MainRouter from "./pages/router";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Base>
-      <Header />
-      <ContentBox>
-        <h2>Setting</h2>
-        <DownloadImage />
-      </ContentBox>
-      <BackendCircleAnimation>
-        <ChartMain />
-      </BackendCircleAnimation>
-      <ContentBox>
-        <h2>マンダラチャートとは？</h2>
-      </ContentBox>
-      <Footer />
+      <BrowserRouter>
+        <Header />
+        <BackendCircleAnimation>
+          <MainRouter />
+        </BackendCircleAnimation>
+        <Footer />
+      </BrowserRouter>
     </Base>
   </StrictMode>
 );

@@ -1,7 +1,11 @@
+import { NavLink } from "react-router";
+
 export default function Header() {
   return (
-    <header className="bg-main-light text-center p-4 shadow-sm">
-      <h1 className="text-3xl font-bold text-base-strong">MANDALA CHART GENERATOR</h1>
+    <header className="text-center p-4 shadow-md">
+      <h1 className="text-3xl font-bold text-base-strong">
+        <NavLink to="/">MANDALA CHART GENERATOR</NavLink>
+      </h1>
     </header>
   );
 }

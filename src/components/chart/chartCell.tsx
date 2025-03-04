@@ -1,6 +1,6 @@
 import { ChangeEvent, FocusEvent, MouseEvent, useEffect, useRef, useState } from "react";
 import { MandalaCellProps } from "./chart";
-import { getSameValueZahyou } from "./chart.default";
+import { getCategoryColorFromZahyou, getSameValueZahyou } from "./chart.default";
 
 export default function MandalaCell({ cellType, value, isFocused, zahyou }: MandalaCellProps) {
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -36,14 +36,24 @@ export default function MandalaCell({ cellType, value, isFocused, zahyou }: Mand
     if (cellType == "subTitle") handleSubTitleChange(e);
   };
 
+  const fontSize =
+    cellType == "title"
+      ? "text-2xl font-bold" // main title cell
+      : cellType == "subTitle"
+      ? `text-lg font-bold` // sub title cell
+      : "text-base"; // item cell
   return (
-    <div className="relative p-2 break-all min-h-15" data-zahyou={zahyou.join(",")}>
+    <div className={`relative p-2 break-all min-h-15 ${fontSize}`} data-zahyou={zahyou.join(",")} id={cellType == "title" ? "center-cell" : ""}>
       {/* ツールチップ */}
       <div
         className={
-          "absolute bottom-4/5 w-64 p-4 bg-white border border-gray-200 rounded-md " +
+          "w-64 p-4 bg-white border border-gray-200 rounded-md absolute" +
+          " " +
           (zahyou[1] > 4 ? "right-0" : "left-0") +
-          " transition-opacity duration-1000 -z-10 focus-within:z-100 opacity-0 focus-within:opacity-100 pointer-events-none focus-within:pointer-events-auto"
+          " " +
+          (zahyou[0] > 2 ? "bottom-4/5" : "top-full") +
+          " " +
+          "transition-opacity duration-1000 -z-10 focus-within:z-100 opacity-0 focus-within:opacity-100 pointer-events-none focus-within:pointer-events-auto"
         }
       >
         <textarea
@@ -62,9 +72,9 @@ export default function MandalaCell({ cellType, value, isFocused, zahyou }: Mand
           cellFocused
             ? "border-attention border-4 -border-offset-4 z-4" // focused style
             : cellType == "title"
-            ? "border-main-strong border-4 -border-offset-4 z-3" // main title cell
+            ? "border-main border-4 -border-offset-4 z-3" // main title cell
             : cellType == "subTitle"
-            ? "border-main-light border-4 -border-offset-4 z-2" // sub title cell
+            ? `${getCategoryColorFromZahyou(zahyou)} border-4 -border-offset-4 z-2` // sub title cell
             : "border-base-line border" // item cell
         }`}
         tabIndex={-1}
@@ -72,7 +82,7 @@ export default function MandalaCell({ cellType, value, isFocused, zahyou }: Mand
         onClick={(e) => handleClick(e)}
       />
       {/* 表示するvalue */}
-      {cellValue}
+      <span className="whitespace-pre-line">{cellValue}</span>
     </div>
   );
 }
