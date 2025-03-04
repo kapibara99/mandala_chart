@@ -1,3 +1,4 @@
+import { NavLink } from "react-router";
 import ContentBox from "../components/contentBox";
 
 export default function Kiyaku() {
@@ -92,6 +93,11 @@ export default function Kiyaku() {
           開発者は、本サービスの利用によって取得する個人情報については、開発者「プライバシーポリシー」に従い適切に取り扱うものとします。
         </p> */}
         <p className="text-right">以上</p>
+        <p>
+          <NavLink className="text-blue-500 hover:underline" to="/" end>
+            サイトトップへ
+          </NavLink>
+        </p>
       </ContentBox>
     </>
   );
