@@ -1,7 +1,8 @@
-import { NavLink, Route, Routes } from "react-router";
+import { NavLink, Route, Routes, useLocation } from "react-router";
 import IndexPage from ".";
 import Kiyaku from "./kiyaku";
 import ContentBox from "../components/contentBox";
+import { useEffect } from "react";
 
 const Page404 = () => {
   return (
@@ -13,12 +14,25 @@ const Page404 = () => {
     </ContentBox>
   );
 };
+
+// 表示位置をトップへ戻す
+const ScrollTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return <></>;
+};
+
 export default function MainRouter() {
   return (
-    <Routes>
-      <Route index element={<IndexPage />}></Route>
-      <Route path="kiyaku" element={<Kiyaku />}></Route>
-      <Route path="*" element={<Page404 />}></Route>
-    </Routes>
+    <>
+      <ScrollTop />
+      <Routes>
+        <Route index element={<IndexPage />}></Route>
+        <Route path="kiyaku" element={<Kiyaku />}></Route>
+        <Route path="*" element={<Page404 />}></Route>
+      </Routes>
+    </>
   );
 }
