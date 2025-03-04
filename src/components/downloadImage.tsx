@@ -33,7 +33,7 @@ export default function DownloadImage() {
       <button
         type="button"
         onClick={onClickExport}
-        className="cursor-pointer relative flex gap-1.5 px-8 py-4 bg-attention text-base rounded-3xl hover:opacity-60 transition font-semibold shadow-md"
+        className="cursor-pointer relative flex gap-1.5 px-8 py-4 bg-attention text-base-color rounded-3xl hover:opacity-60 transition font-bold shadow-md"
       >
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="24px" width="24px">
           <g stroke-width="0" id="SVGRepo_bgCarrier"></g>

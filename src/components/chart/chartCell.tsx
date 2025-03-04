@@ -36,8 +36,14 @@ export default function MandalaCell({ cellType, value, isFocused, zahyou }: Mand
     if (cellType == "subTitle") handleSubTitleChange(e);
   };
 
+  const fontSize =
+    cellType == "title"
+      ? "text-2xl font-bold" // main title cell
+      : cellType == "subTitle"
+      ? `text-lg font-bold` // sub title cell
+      : "text-base"; // item cell
   return (
-    <div className="relative p-2 break-all min-h-15" data-zahyou={zahyou.join(",")}>
+    <div className={`relative p-2 break-all min-h-15 ${fontSize}`} data-zahyou={zahyou.join(",")} id={cellType == "title" ? "center-cell" : ""}>
       {/* ツールチップ */}
       <div
         className={
@@ -72,7 +78,7 @@ export default function MandalaCell({ cellType, value, isFocused, zahyou }: Mand
         onClick={(e) => handleClick(e)}
       />
       {/* 表示するvalue */}
-      {cellValue}
+      <span className="whitespace-pre-line">{cellValue}</span>
     </div>
   );
 }
