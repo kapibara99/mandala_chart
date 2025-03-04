@@ -9,6 +9,7 @@ import ChartMain from "./components/chart/chartMain";
 import BackendCircleAnimation from "./components/backgroundAnimation";
 import ContentBox from "./components/contentBox";
 import DownloadImage from "./components/downloadImage";
+import About from "./components/about";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -21,7 +22,7 @@ createRoot(document.getElementById("root")!).render(
         <DownloadImage />
       </ContentBox>
       <ContentBox title="マンダラチャートとは？">
-        <p>aaaa</p>
+        <About />
       </ContentBox>
       <Footer />
     </Base>
