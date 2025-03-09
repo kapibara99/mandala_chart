@@ -8,3 +8,5 @@ export const chartStyleAtom = atom({
 
 export const chartBgColorAtom = atom(DEFAULT_BG_COLOR);
 export const chartFontColorAtom = atom(DEFAULT_FONT_COLOR);
+
+export const chartCellSizeAtom = atom<number | "auto">("auto");

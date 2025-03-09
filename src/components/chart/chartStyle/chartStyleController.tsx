@@ -19,7 +19,11 @@ function SelectDropDown({
       <label className="block text-lg mb-0.5" htmlFor={selectId}>
         {labelName}
       </label>
-      <select className="w-full bg-white p-4 rounded-lg max-w-[400px] border-2 border-base-line" id={selectId} onChange={(e) => changeHandler(e)}>
+      <select
+        className="cursor-pointer w-full bg-white p-4 rounded-lg max-w-[400px] border-2 border-base-line shadow-md"
+        id={selectId}
+        onChange={(e) => changeHandler(e)}
+      >
         {options.map((v) => (
           <option key={v} value={v}>
             {v}

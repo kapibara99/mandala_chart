@@ -1,4 +1,5 @@
 import ChartMain from "../components/chart/chartMain";
+import ChartCellSizeController from "../components/chart/chartStyle/chartCellSizeController";
 import ChartColorController from "../components/chart/chartStyle/chartColorController";
 import ChartStyleController from "../components/chart/chartStyle/chartStyleController";
 import ContentBox from "../components/contentBox";
@@ -11,6 +12,7 @@ export default function IndexPage() {
       <ContentBox title="デザインの編集・保存・ダウンロード">
         <ChartStyleController />
         <ChartColorController />
+        <ChartCellSizeController />
         <DownloadImage />
       </ContentBox>
       <ContentBox title="マンダラチャートとは？">
