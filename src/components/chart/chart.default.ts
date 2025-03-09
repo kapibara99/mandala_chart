@@ -1,4 +1,4 @@
-import { ChartStyle, MandalaCellProps } from "./chart";
+import { MandalaCellProps } from "./chart";
 
 export const CHART_MAIN_ID = "chart-main";
 
@@ -36,19 +36,6 @@ export function getCategoryColorFromZahyou(zahyou: [number, number]) {
   }
   return CHART_COLORS[4];
 }
-
-export const DEFAULT_BG_COLOR = "#000000";
-export const DEFAULT_FONT_COLOR = "#000000";
-
-export const DEFAULT_STYLE: ChartStyle = {
-  fontFamily: "sans-serif",
-  centralBackgroundColor: DEFAULT_BG_COLOR,
-  centralFontColor: DEFAULT_FONT_COLOR,
-  subTitleBackgroundColor: DEFAULT_BG_COLOR,
-  subTitleFontColor: DEFAULT_FONT_COLOR,
-  itemBackgroundColor: DEFAULT_BG_COLOR,
-  itemFontColor: DEFAULT_FONT_COLOR,
-};
 
 export const DEFAULT_CHART_DATA = () => {
   const MandalaCellDefault: MandalaCellProps = {
