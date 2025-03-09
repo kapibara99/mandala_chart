@@ -1,4 +1,4 @@
-export const DEFAULT_BG_COLOR = "#000000";
+export const DEFAULT_BG_COLOR = "#ffffff";
 export const DEFAULT_FONT_COLOR = "#000000";
 export const fontSizes = ["text-xs", "text-sm", "text-base", "text-lg", "text-xl", "text-2xl", "text-3xl", "text-4xl", "text-5xl"] as const;
 export const textAligns = ["text-left", "text-center", "text-right"] as const;
