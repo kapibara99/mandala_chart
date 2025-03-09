@@ -7,8 +7,8 @@ export default function ChartMain() {
   // チャートのメインコンポーネント
   return (
     <ChartStyleDefault>
-      <div id={CHART_MAIN_ID} className={`${defaultWidthSize} p-4 bg-white overflow-x-auto shadow-md`}>
-        <div className="grid grid-cols-9 min-w-[1000px]">
+      <div className={`${defaultWidthSize} p-4 bg-white overflow-x-auto shadow-md`}>
+        <div id={CHART_MAIN_ID} className="grid grid-cols-9 min-w-[1000px]">
           {DEFAULT_CHART_DATA().map((props) => (
             <MandalaCell key={`${props.cellType}-${props.zahyou[0]}-${props.zahyou[1]}`} {...props} />
           ))}
