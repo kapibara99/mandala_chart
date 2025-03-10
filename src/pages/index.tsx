@@ -1,9 +1,11 @@
+import { CHART_MAIN_ID } from "../components/chart/chart.default";
 import ChartMain from "../components/chart/chartMain";
 import ChartCellSizeController from "../components/chart/chartStyle/chartCellSizeController";
 import ChartColorController from "../components/chart/chartStyle/chartColorController";
 import ChartStyleController from "../components/chart/chartStyle/chartStyleController";
 import ContentBox from "../components/contentBox";
 import DownloadImage from "../components/downloadImage";
+import TablePaste from "../components/tablePaste";
 
 export default function IndexPage() {
   return (
@@ -13,7 +15,14 @@ export default function IndexPage() {
         <ChartStyleController />
         <ChartColorController />
         <ChartCellSizeController />
-        <DownloadImage />
+        <div className="flex">
+          <div>
+            <DownloadImage />
+          </div>
+          <div className="ml-4">
+            <TablePaste targetId={CHART_MAIN_ID} />
+          </div>
+        </div>
       </ContentBox>
       <ContentBox title="マンダラチャートとは？">
         <div className="leading-loose">

@@ -3,6 +3,7 @@ import IndexPage from ".";
 import Kiyaku from "./kiyaku";
 import ContentBox from "../components/contentBox";
 import { useEffect } from "react";
+import PrivacyPolicy from "./privacy";
 
 const Page404 = () => {
   return (
@@ -31,6 +32,7 @@ export default function MainRouter() {
       <Routes>
         <Route index element={<IndexPage />}></Route>
         <Route path="kiyaku" element={<Kiyaku />}></Route>
+        <Route path="privacy" element={<PrivacyPolicy />}></Route>
         <Route path="*" element={<Page404 />}></Route>
       </Routes>
     </>
